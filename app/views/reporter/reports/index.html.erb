@@ -1,0 +1,9 @@
+<div class='d-flex flex-row justify-content-between align-items-end'>
+  <h1><%= t('.title') %></h1>
+
+  <%= render 'create_button_dropdown' %>
+</div>
+
+<%= render 'alert', notice: notice %>
+<%= render 'reports_table', reports: @reports %>
+<%== pagy_bootstrap_nav(@pagy) %>

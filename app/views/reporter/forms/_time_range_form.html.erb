@@ -1,0 +1,38 @@
+<%= report_form(report) do |form| %>
+
+  <% if report.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+        <% report.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :form, report.form_object do |f| %>
+    <div class="col-md-2">
+      <%= f.label :start, class: 'form-label' %>
+      <%= f.datetime_field :start, class: 'form-control' %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :end, class: 'form-label' %>
+      <%= f.datetime_field :end, class: 'form-control' %>
+    </div>
+
+    <div class="col-md-12">
+      <% report.available_formats.each do |format| %>
+        <div class="form-check form-check-inline">
+          <%= f.check_box :report_formats, { multiple: true, class: 'form-check-input'}, format, nil %>
+          <%= f.label format, class: 'form-check-label' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class='col-12'>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

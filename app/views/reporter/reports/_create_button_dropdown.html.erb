@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= t('create_report') %>
+  </button>
+
+  <ul class="dropdown-menu">
+    <% Reporter::Report.descendants.each do |report_class| %>
+      <li>
+        <%= link_to report_class.model_name.human, new_report_path(type: report_class), class: "dropdown-item" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

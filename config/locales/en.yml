@@ -1,0 +1,17 @@
+en:
+  reporter:
+    reports:
+      index:
+        title: Reports
+      new:
+        title: New Report %{report_name}
+
+  activerecord:
+    models:
+      reporter/report: Report
+    attributes:
+      reporter/report:
+        id: Id
+        type: Type
+        status: Status
+        processed_at: Processed At
