@@ -1,5 +1,5 @@
 # Reporter
-An easy way to generate reports in different formats.
+An easy way to generate reports in different formats. See [example project](https://github.com/Nitr/reporter_example)
 
 ![report dashboard](./reports.png)
 
